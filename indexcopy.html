@@ -404,6 +404,45 @@
             visibility: visible;
         }
 
+         .discord-contact {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background-color: #f5f5f5;
+        padding: 10px 15px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+    }
+
+    .discord-contact a {
+        color: #5865F2;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .discord-contact a:hover {
+        text-decoration: underline;
+    }
+
+    .username {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .copy-btn {
+        background-color: #5865F2;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    .copy-btn:hover {
+        background-color: #4752C4;
+    }
+        
         #credit {
             position: fixed;
             bottom: 10px;
@@ -732,9 +771,15 @@
     <h1>Contact</h1>
     <div class="contact-info">
         <p><strong>Name:</strong> Jegan @ JGN</p>
-        <p><strong>Discord:</strong> <a href="https://discord.com/channels/@me/1212667001730768916" target="_blank">jegan.moorali#2774</a></p>
+        <p><strong>Discord:</strong> 
+            <div class="discord-contact">
+           
+            <span class="username">jegan.moorali</span>
+            <button class="copy-btn" onclick="copyDiscordUsername()">Copy Username</button>
+        </div></p>
         <p><strong>Email:</strong> jegan.moorali@echobroadband.com.my</p>       
     </div>
+   
 </section>
 
 <!-- Go Home Button -->
@@ -790,6 +835,15 @@
 
     function scrollToTop() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function copyDiscordUsername() {
+        navigator.clipboard.writeText('jegan.moorali#2774').then(() => {
+            alert('Username copied to clipboard!');
+        }).catch(err => {
+            alert('Failed to copy username');
+            console.error('Error copying username:', err);
+        });
     }
 
     window.addEventListener('scroll', updateScrollEffects);
